@@ -1,5 +1,6 @@
 ![checks](https://github.com/trifectatechfoundation/zlib-rs/actions/workflows/checks.yaml/badge.svg?branch=main)
 [![codecov](https://codecov.io/gh/trifectatechfoundation/zlib-rs/graph/badge.svg?token=KZLDE24YVL)](https://codecov.io/gh/trifectatechfoundation/zlib-rs)
+[![CodSpeed Badge](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://codspeed.io/trifectatechfoundation/zlib-rs)
 [![Crates.io](https://img.shields.io/crates/v/libz-rs-sys.svg)](https://crates.io/crates/libz-rs-sys)
 
 

@@ -1,0 +1,35 @@
+name: CodSpeed Benchmarks
+'on':
+  push:
+    branches:
+    - main
+  pull_request: null
+  workflow_dispatch: null
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  benchmarks:
+    name: Run benchmarks
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+    - name: Install rust toolchain
+      uses: dtolnay/rust-toolchain@stable
+    - name: Setup rust cache
+      uses: Swatinem/rust-cache@v2
+    - name: Install cargo-codspeed
+      uses: taiki-e/install-action@v2
+      with:
+        tool: cargo-codspeed@4.1.0
+    - name: Build benchmarks
+      run: cargo codspeed build -p test-libz-rs-sys
+    - name: Run benchmarks
+      uses: CodSpeedHQ/action@v4.4.1
+      with:
+        upload-url: ${{ secrets.CODSPEED_STAGING_UPLOAD_URL }}
+        mode: simulation
+        run: cargo codspeed run -p test-libz-rs-sys

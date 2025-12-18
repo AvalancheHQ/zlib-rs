@@ -29,7 +29,16 @@ libc = { version = "0.2.171", optional = true }
 quickcheck.workspace = true
 crc32fast = "1.3.2"
 tempfile = "3.19.1"
+codspeed-criterion-compat = "4.1.0"
 
 [target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
 libloading.workspace = true
 dynamic-libz-sys.workspace = true
+
+[[bench]]
+name = "compression"
+harness = false
+
+[[bench]]
+name = "checksums"
+harness = false
