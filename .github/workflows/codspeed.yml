@@ -1,0 +1,28 @@
+name: CodSpeed
+'on':
+  push:
+    branches:
+    - main
+  pull_request: null
+  merge_group: null
+permissions:
+  contents: read
+jobs:
+  benchmarks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+    - name: Install cargo-codspeed
+      uses: taiki-e/install-action@v2
+      with:
+        tool: cargo-codspeed
+    - name: Build benchmarks
+      run: cargo codspeed build -p zlib-rs
+    - name: Run benchmarks
+      uses: CodSpeedHQ/action@v3
+      with:
+        upload-url: ${{ secrets.CODSPEED_STAGING_UPLOAD_URL }}
+        run: cargo codspeed run -p zlib-rs
+        token: ${{ secrets.CODSPEED_TOKEN }}
