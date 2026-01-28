@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/trifectatechfoundation/zlib-rs/graph/badge.svg?token=KZLDE24YVL)](https://codecov.io/gh/trifectatechfoundation/zlib-rs)
 [![Crates.io](https://img.shields.io/crates/v/libz-rs-sys.svg)](https://crates.io/crates/libz-rs-sys)
 
-
+Pretext to open pr 
 # zlib-rs: a safer zlib
 
 This repository contains a Rust implementation of the zlib file format that is compatible with the zlib API.
